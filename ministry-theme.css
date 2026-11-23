@@ -1,0 +1,163 @@
+/* Ministry identity: white field, traditional serif type, and the Fiji coat-of-arms palette. */
+:root {
+  color-scheme: light;
+  --deep: #ffffff;
+  --deepest: #ffffff;
+  --sea: #246b47;
+  --mint: #185e3d;
+  --gold: #a98231;
+  --paper: #1e2921;
+  --muted: #53645a;
+  --ministry-green: #1c7548;
+  --ministry-red: #9c2939;
+  --ministry-gold: #b68e33;
+  --ministry-ink: #1d2820;
+  --dws-blue: #131c73;
+}
+
+body { background: #fff; color: var(--ministry-ink); font-family: Georgia, 'Times New Roman', serif; }
+.ceremony {
+  background: radial-gradient(ellipse at 85% 72%, #eef6ee 0%, transparent 36%),
+              radial-gradient(ellipse at 4% 8%, #fffaf0 0%, transparent 39%),
+              linear-gradient(105deg, #fff 0%, #fff 68%, #fbfdfb 100%);
+  color: var(--ministry-ink);
+}
+.ceremony::before {
+  content: ''; position: absolute; inset: 0 auto auto 0; z-index: -1;
+  height: 5px; width: 100%;
+  background: linear-gradient(90deg, var(--ministry-red) 0 20%, var(--ministry-gold) 20% 28%, var(--ministry-green) 28% 100%);
+}
+.ambient::before { border-color: #2a84501c; box-shadow: 0 0 0 9vw #4b9b5b06, 0 0 0 19vw #a2c6ab04; }
+.ambient::after { opacity: .2; background-image: linear-gradient(#2b7a4b0b 1px, transparent 1px), linear-gradient(90deg, #2b7a4b0b 1px, transparent 1px); }
+.ambient-glow--one { background: #b0d9ba; opacity: .18; }
+.ambient-glow--two { background: #e9d5b8; opacity: .12; }
+.wave-lines { stroke: #247747; opacity: .18; }
+
+/* Use the original, unaltered Ministry logo. The surrounding white margin is cropped by CSS only. */
+.masthead {
+  min-height: 172px; padding: 10px clamp(28px, 5.2vw, 95px);
+  align-items: center; border-bottom: 1px solid #e2e9e0;
+  background: linear-gradient(90deg, #fffffffb, #fffffff1);
+}
+.brand--ministry { display: block; }
+.ministry-logo-window { width: min(34vw, 420px); aspect-ratio: 410 / 140; position: relative; overflow: hidden; background: #fff; }
+.ministry-logo-window img { position: absolute; display: block; width: 122%; max-width: none; height: auto; left: -11.2%; top: -114.3%; }
+.masthead-right { color: #4f5870; font-family: Arial, Helvetica, sans-serif; font-size: 11px; letter-spacing: .17em; }
+.masthead-right .small-line { background: var(--ministry-red); }
+.masthead-right .year { color: var(--dws-blue); }
+
+.scene { top: clamp(175px, 19vh, 210px); bottom: clamp(76px, 9vh, 100px); }
+.eyebrow { color: var(--ministry-red); font-family: Arial, Helvetica, sans-serif; font-size: clamp(12px, .9vw, 15px); letter-spacing: .23em; }
+.eyebrow-line { background: var(--ministry-red); }
+.ready-copy h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(36px, 3.93vw, 70px); font-weight: 600;
+  line-height: 1.03; letter-spacing: -.043em;
+  color: #1f2737; margin: clamp(12px, 1.6vh, 20px) 0 18px;
+}
+.ready-copy h1 em { color: var(--ministry-red); }
+.ready-copy h1 span { color: var(--dws-blue); }
+.date-pill { color: var(--ministry-red); font-size: 21px; }
+.date-line { background: var(--ministry-gold); }
+.date-dash { color: var(--ministry-gold); }
+.ready-intro { color: #4d5a70; margin: 19px 0 clamp(22px, 3.4vh, 37px); font-size: clamp(16px, 1.1vw, 19px); }
+.minister-intro { border-left: 3px solid var(--ministry-red); }
+.minister-tag { color: var(--dws-blue); font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.minister-intro strong { color: #39475b; font-size: clamp(15px, 1vw, 17px); }
+.minister-name { color: #20283b; font-weight: 600; }
+
+.launch-halo { background: radial-gradient(circle, #5198d30d 0%, #8dc2e537 35%, transparent 70%); }
+.orbit { border-color: #26754959; }
+.orbit-two { border-color: #a88e394d; }
+.launch-button {
+  border-color: #fff9f0;
+  background: radial-gradient(circle at 30% 21%, #6ac4f1, #237ecb 44%, #1252a7 73%, #0b2174 100%);
+  box-shadow: 0 0 0 2px #246dbc, 0 0 0 17px #2a84bd1a, inset 0 0 40px #ffffff1e, 0 23px 50px #26395b36;
+  color: #fff;
+}
+.launch-button:hover { box-shadow: 0 0 0 3px #174f9f, 0 0 0 22px #3389ce28, inset 0 0 42px #ffffff22, 0 27px 55px #26395b4a; }
+.launch-icon { stroke: #fffaef; }
+.launch-button-main, .launch-button-sub { font-family: Arial, Helvetica, sans-serif; }
+.launch-button-sub { color: #fff0e2; }
+.button-caption { color: #365a42; font-family: Arial, Helvetica, sans-serif; }
+.caption-dot { background: #218e53; box-shadow: 0 0 9px #218e5344; }
+.countdown-caption { color: #6c776e; font-family: Arial, Helvetica, sans-serif; }
+.caption-rule { background: #b89f69; }
+
+.scene--countdown h2 { color: #495474; font-family: Arial, Helvetica, sans-serif; }
+.number-orbit span { border-color: #2b875144; }
+.number-orbit span:nth-child(2) { border-color: #a5872c38; }
+.number-orbit span:nth-child(3) { border-color: #a32c3b4e; }
+.countdown-number { color: var(--dws-blue); text-shadow: 0 0 38px #8bb3ed55, 0 0 100px #8bb3ed29; }
+.progress-pips span { background: #bed4c0; }
+.progress-pips span.is-lit { background: var(--ministry-red); box-shadow: 0 0 12px #a52d3b40; }
+.countdown-message { color: #505d73; }
+
+.reveal-aura { background: radial-gradient(circle at 75% 47%, #7dc38f43, transparent 42%), radial-gradient(circle at 38% 90%, #d6bb7030, transparent 42%); }
+.reveal-message h2 { color: var(--ministry-ink); }
+.reveal-message h2 span { color: var(--dws-blue); }
+.reveal-rule { background: var(--ministry-red); }
+.reveal-message h3 { color: #202a3e; font-family: Georgia, 'Times New Roman', serif; font-weight: 600; }
+.reveal-period { color: var(--ministry-red); }
+.reveal-message p { color: #526078; font-size: clamp(16px, 1.1vw, 18px); }
+.launched-by { border-left-color: var(--ministry-red); color: var(--dws-blue); }
+.launched-by strong { color: #20283d; }
+.launched-by span { color: #4b5971; font-size: 15px; }
+.document-link { background: var(--ministry-green); color: #fff; font-family: Arial, Helvetica, sans-serif; }
+.document-link:hover { background: #0e5733; }
+.download-link { color: var(--ministry-red); border-color: #c38f94; font-family: Arial, Helvetica, sans-serif; }
+.download-link:hover { background: #fff2f2; }
+.cover-glow { background: #8acba144; }
+.cover-shadow { border-color: #d7dfd8; box-shadow: 0 29px 70px #253f2b35, 0 0 0 12px #a9bfa71f; }
+.ribbon { background: linear-gradient(#c2484d, #9b2638 50%, #7d1c2d 70%, #bf3d4a); box-shadow: 0 0 0 2px #d2ac48, 0 0 35px #a33d4e40; }
+.ribbon::after { background: #eccc8e78; }
+.ribbon-seal { background: radial-gradient(circle at 35% 28%, #ffe6a6, #bd9438); border-color: #f9e9b4; color: #fff9e6; }
+.particles i:nth-child(3n) { background: #aa2938; }
+.particles i:nth-child(3n + 1) { background: #1c8654; }
+.particles i:nth-child(3n + 2) { background: #bda35a; }
+
+.ceremony-footer { border-top: 1px solid #e4eae3; background: #fffdfce8; padding-top: 14px; padding-bottom: 14px; }
+.footer-signature { color: #62708a; font-family: Arial, Helvetica, sans-serif; }
+.footer-divider { color: var(--dws-blue); }
+.utility-button { color: #4e5c72; font-family: Arial, Helvetica, sans-serif; }
+.utility-button:hover { color: var(--ministry-red); }
+.settings-panel { border-color: #d4dce9; background: #fff; color: #23375c; }
+.settings-header button { color: #293e69; }
+.settings-panel p { color: #53627c; }
+.settings-panel select { color: #263b65; }
+.settings-panel small { color: #64718a; }
+.settings-panel label { color: #273d65; }
+.settings-panel input { accent-color: var(--ministry-green); }
+.settings-panel .sound-level-label { display: flex; align-items: center; justify-content: space-between; margin: 15px 0 6px; }
+.sound-level-label output { color: #13569c; font-family: Arial, Helvetica, sans-serif; font-weight: 700; }
+.settings-panel input[type="range"] { display: block; width: 100%; margin: 6px 0 13px; accent-color: #1766b8; }
+.settings-panel .sound-preview { width: 100%; border: 1px solid #2b73b2; color: #155696; background: #eef6fd; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 700; margin-top: 8px; }
+.settings-panel .sound-preview:hover { background: #e0f0fe; }
+.settings-buttons button { border-color: #164a95; color: #164a95; }
+.settings-buttons button:first-child { background: #164a95; color: #fff; }
+
+@media (max-height: 760px) and (min-width: 800px) {
+  .masthead { min-height: 125px; }
+  .ministry-logo-window { width: min(29vw, 345px); }
+  .scene { top: 138px; bottom: 72px; }
+  .ready-copy h1 { font-size: clamp(34px, 3.4vw, 54px); }
+  .ready-intro { margin: 10px 0 16px; }
+  .reveal-message h2 { font-size: clamp(44px, 4.8vw, 76px); }
+}
+
+@media (max-width: 900px) {
+  .masthead { min-height: 150px; padding: 8px 25px; }
+  .ministry-logo-window { width: min(41vw, 365px); }
+  .scene { top: 158px; bottom: 80px; }
+  .ready-copy h1 { font-size: clamp(32px, 4.5vw, 49px); }
+}
+
+@media (max-width: 700px) {
+  .masthead { min-height: 127px; padding: 8px 17px; }
+  .ministry-logo-window { width: min(91vw, 345px); }
+  .scene { top: 142px; bottom: 69px; }
+  .ready-copy h1 { font-size: clamp(32px, 7.5vw, 51px); }
+  .ready-intro { margin: 15px 0 21px; }
+  .ceremony-footer { padding: 12px 19px; }
+  .countdown-number { color: var(--dws-blue); }
+}

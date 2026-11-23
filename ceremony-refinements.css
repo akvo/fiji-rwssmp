@@ -1,0 +1,259 @@
+/* Final-ceremony refinements: optical centering and a quiet document/QR reveal. */
+/* Co-branded masthead is shared by ready, countdown and document-reveal scenes. */
+.masthead-right--with-dws {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 35px);
+  flex-shrink: 0;
+}
+.header-ceremony-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+.dws-logo {
+  display: block;
+  width: clamp(185px, 21vw, 275px);
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 1050px) {
+  .header-ceremony-label { display: none; }
+  .dws-logo { width: min(29vw, 245px); }
+}
+@media (max-width: 700px) {
+  .masthead { padding: 8px 12px; gap: 8px; }
+  .ministry-logo-window { width: min(54vw, 280px); }
+  .masthead-right--with-dws { display: flex; }
+  .dws-logo { width: min(34vw, 150px); }
+}
+
+/* Formal holding slide: the Minister's details and launch control stay on the next scene. */
+.scene--backdrop {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.backdrop-watermark {
+  position: absolute;
+  right: -7%;
+  top: 2%;
+  width: min(38vw, 500px);
+  opacity: .075;
+  transform: rotate(9deg);
+  pointer-events: none;
+}
+.backdrop-watermark svg { width: 100%; height: auto; overflow: visible; }
+.backdrop-watermark svg path:first-child { fill: #1560ac; }
+.backdrop-watermark svg path:last-child { fill: none; stroke: #ffffff; stroke-width: 12; stroke-linecap: round; }
+.backdrop-content {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100%);
+  padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.backdrop-kicker {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #a12c40;
+  font: 700 clamp(13px, 1.1vw, 17px)/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: .26em;
+}
+.backdrop-kicker span { width: clamp(36px, 5vw, 70px); height: 1px; background: #a12c40; }
+.backdrop-content h1 {
+  color: #20283b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(45px, 5.3vw, 82px);
+  font-weight: 600;
+  line-height: 1.055;
+  letter-spacing: -.048em;
+  text-wrap: balance;
+  margin: clamp(18px, 3vh, 38px) 0 clamp(22px, 3vh, 37px);
+}
+.backdrop-content h1 em { color: var(--ministry-red); font-style: normal; }
+.backdrop-content h1 span { color: var(--dws-blue); }
+.backdrop-period {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.2vw, 30px);
+  color: var(--dws-blue);
+  font: 400 clamp(23px, 2vw, 30px)/1.2 Georgia, 'Times New Roman', serif;
+  letter-spacing: .16em;
+}
+.backdrop-period span { width: clamp(36px, 5vw, 75px); height: 2px; background: var(--ministry-gold); }
+.backdrop-period b { color: var(--ministry-red); font-weight: 400; }
+.backdrop-content p {
+  color: #4c5870;
+  max-width: 760px;
+  font: 400 clamp(16px, 1.25vw, 20px)/1.5 Georgia, 'Times New Roman', serif;
+  margin: clamp(24px, 3.8vh, 48px) 0 0;
+  text-wrap: balance;
+}
+.utility-button--stage {
+  border: 1px solid #a9bfdc;
+  background: #f1f6fc;
+  color: var(--dws-blue);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-weight: 800;
+}
+.utility-button--stage:hover, .utility-button--stage:focus-visible { background: #e5effb; color: #103e89; }
+.utility-button--back { color: #355783; }
+.footer-actions { align-items: center; }
+
+@media (max-height: 760px) and (min-width: 701px) {
+  .backdrop-content h1 { font-size: clamp(43px, 4.55vw, 65px); margin: 12px 0 18px; }
+  .backdrop-content p { margin-top: 20px; }
+}
+@media (max-width: 700px) {
+  .scene--backdrop { overflow-y: auto; }
+  .backdrop-content h1 { font-size: clamp(31px, 8.2vw, 48px); line-height: 1.08; margin: 22px 0 24px; }
+  .backdrop-kicker { gap: 9px; font-size: 12px; letter-spacing: .17em; }
+  .backdrop-kicker span { width: 26px; }
+  .backdrop-period { font-size: 20px; gap: 11px; }
+  .backdrop-period span { width: 29px; }
+  .backdrop-content p { font-size: 15px; margin-top: 27px; }
+  .backdrop-watermark { width: 76vw; top: 6%; right: -23%; }
+  .footer-actions { gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .utility-button--stage { font-size: 9px; padding: 9px 8px; }
+}
+
+.countdown-dial {
+  width: min(38vw, 510px);
+  aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: clamp(12px, 2.1vh, 25px) auto clamp(12px, 2vh, 22px);
+}
+.countdown-dial .number-orbit {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  transform: none;
+}
+.countdown-dial .countdown-number {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: -.035em;
+  font-size: clamp(160px, 25vw, 335px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.reveal-content--simple {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(30px, 6vw, 90px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.reveal-content--simple .cover-presentation {
+  height: min(58vh, 550px);
+}
+.reveal-content--simple .cover-shadow {
+  transform: rotate(-1deg);
+  box-shadow: 0 22px 56px #243c602c, 0 0 0 10px #c3d5e427;
+}
+.reveal-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  animation: message-arrive 1.3s .6s backwards ease-out;
+}
+.reveal-kicker {
+  color: var(--ministry-red);
+  font: 700 clamp(12px, .95vw, 15px)/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: .2em;
+}
+.reveal-panel h2 {
+  color: #20283b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(39px, 4.2vw, 64px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  margin: 12px 0 8px;
+}
+.reveal-panel h2 span { color: var(--dws-blue); }
+.reveal-document-title {
+  color: #39465e;
+  font: 600 clamp(14px, 1.08vw, 17px)/1.45 Georgia, 'Times New Roman', serif;
+  letter-spacing: .02em;
+  margin: 0 0 clamp(16px, 2.3vh, 28px);
+}
+.reveal-document-title span {
+  color: var(--ministry-red);
+  letter-spacing: .13em;
+  font-weight: 400;
+}
+.qr-download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #cddbeb;
+  border-radius: 12px;
+  padding: clamp(13px, 1.5vw, 20px);
+  box-shadow: 0 16px 32px #14235c11;
+  color: var(--dws-blue);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.qr-download:hover { transform: translateY(-3px); box-shadow: 0 18px 40px #14235c22; }
+.qr-download img { display: block; width: clamp(185px, 20vw, 260px); height: auto; aspect-ratio: 1; }
+.qr-download strong {
+  font: 700 clamp(12px, 1vw, 15px)/1.45 Arial, Helvetica, sans-serif;
+  letter-spacing: .09em;
+  text-align: center;
+}
+.reveal-open-pdf {
+  color: #1758a4;
+  font: 600 14px/1.5 Arial, Helvetica, sans-serif;
+  text-underline-offset: 4px;
+  margin-top: 15px;
+}
+
+@media (max-height: 760px) and (min-width: 701px) {
+  .countdown-dial { width: min(35vw, 355px); margin: 7px auto 10px; }
+  .countdown-dial .countdown-number { font-size: clamp(140px, 21vw, 260px); }
+  .reveal-content--simple .cover-presentation { height: min(53vh, 405px); }
+  .reveal-panel h2 { font-size: clamp(35px, 3.7vw, 51px); margin-top: 7px; }
+  .reveal-document-title { margin-bottom: 10px; font-size: 14px; }
+  .qr-download { gap: 7px; padding: 12px; }
+  .qr-download img { width: clamp(180px, 18vw, 220px); }
+  .reveal-open-pdf { margin-top: 9px; }
+}
+
+@media (max-width: 700px) {
+  .countdown-dial { width: min(75vw, 330px); margin: 18px auto; }
+  .countdown-dial .countdown-number { font-size: clamp(132px, 34vw, 235px); }
+  .reveal-content--simple {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 8px 0 34px;
+  }
+  .reveal-content--simple .cover-presentation { order: 1; height: min(35vh, 300px); min-height: 180px; }
+  .reveal-content--simple .reveal-panel { order: 2; }
+  .reveal-panel h2 { font-size: clamp(36px, 8.3vw, 48px); }
+  .reveal-document-title { margin-bottom: 15px; }
+  .qr-download img { width: min(53vw, 220px); }
+}
