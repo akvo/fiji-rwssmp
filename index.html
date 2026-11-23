@@ -6,23 +6,22 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="The official launch ceremony of Fiji's Rural Water Supply and Sanitation Master Plan, 2026–2050.">
   <title>Official Launch | Fiji Rural Water Supply and Sanitation Master Plan</title>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="ministry-theme.css">
   <link rel="stylesheet" href="ceremony-refinements.css">
+  <link rel="stylesheet" href="typography.css">
 </head>
 <body>
   <main class="ceremony" id="ceremony">
     <div class="ambient" aria-hidden="true">
-      <div class="ambient-glow ambient-glow--one"></div>
-      <div class="ambient-glow ambient-glow--two"></div>
-      <svg class="wave-lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-        <path d="M-160 620 C 180 400, 390 830, 760 590 S 1320 470, 1650 640"/>
-        <path d="M-160 662 C 180 442, 390 872, 760 632 S 1320 512, 1650 682"/>
-        <path d="M-160 704 C 180 484, 390 914, 760 674 S 1320 554, 1650 724"/>
-        <path d="M-160 746 C 180 526, 390 956, 760 716 S 1320 596, 1650 766"/>
-        <path d="M-160 788 C 180 568, 390 998, 760 758 S 1320 638, 1650 808"/>
-        <path d="M-160 830 C 180 610, 390 1040, 760 800 S 1320 680, 1650 850"/>
-      </svg>
+      <div class="sea">
+        <svg class="wave-lines" viewBox="0 0 1440 480" preserveAspectRatio="none">
+          <path class="wave wave-3" d="M0 156 Q 360 126 720 156 T 1440 156 T 2160 156 T 2880 156 L2880 480 L0 480 Z"/>
+          <path class="wave wave-2" d="M0 272 Q 180 248 360 272 T 720 272 T 1080 272 T 1440 272 T 1800 272 T 2160 272 T 2520 272 T 2880 272 L2880 480 L0 480 Z"/>
+          <path class="wave wave-1" d="M0 404 Q 120 386 240 404 T 480 404 T 720 404 T 960 404 T 1200 404 T 1440 404 T 1680 404 T 1920 404 T 2160 404 T 2400 404 T 2640 404 T 2880 404 L2880 480 L0 480 Z"/>
+        </svg>
+      </div>
     </div>
 
     <header class="masthead">
@@ -38,12 +37,6 @@
     </header>
 
     <section id="backdrop" class="scene scene--backdrop is-active" aria-labelledby="backdrop-heading">
-      <div class="backdrop-watermark" aria-hidden="true">
-        <svg viewBox="0 0 340 440" focusable="false">
-          <path d="M170 15C129 73 44 164 44 255a126 126 0 0 0 252 0C296 164 211 73 170 15Z"/>
-          <path d="M90 287c45-32 94-32 144 0M104 325c41-23 89-23 132 0"/>
-        </svg>
-      </div>
       <div class="backdrop-content">
         <div class="backdrop-kicker"><span></span> OFFICIAL LAUNCH <span></span></div>
         <h1 id="backdrop-heading">FIJI RURAL WATER SUPPLY <em>&amp;</em> SANITATION <span>MASTER PLAN</span></h1>
@@ -108,10 +101,10 @@
     <footer class="ceremony-footer">
       <div class="footer-signature">FIJI <span class="footer-divider">·</span> WATER, SANITATION &amp; RESILIENCE</div>
       <div class="footer-actions">
-        <button type="button" id="continue-button" class="utility-button utility-button--stage" aria-label="Continue from event backdrop to Ministerial launch screen">CONTINUE TO LAUNCH</button>
-        <button type="button" id="backdrop-button" class="utility-button utility-button--back" hidden>BACK TO BACKDROP</button>
-        <button type="button" id="settings-toggle" class="utility-button" aria-expanded="false" aria-controls="settings-panel">CEREMONY SETTINGS</button>
-        <button type="button" id="fullscreen-button" class="utility-button">FULL SCREEN</button>
+        <button type="button" id="continue-button" class="utility-button utility-button--stage" aria-label="Continue from event backdrop to Ministerial launch screen">Continue to launch</button>
+        <button type="button" id="backdrop-button" class="utility-button utility-button--back" hidden>Back to backdrop</button>
+        <button type="button" id="settings-toggle" class="utility-button" aria-expanded="false" aria-controls="settings-panel">Ceremony settings</button>
+        <button type="button" id="fullscreen-button" class="utility-button">Full screen</button>
       </div>
     </footer>
 

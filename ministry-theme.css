@@ -15,11 +15,9 @@
   --dws-blue: #131c73;
 }
 
-body { background: #fff; color: var(--ministry-ink); font-family: Georgia, 'Times New Roman', serif; }
+body { background: #fff; color: var(--ministry-ink); font-family: 'Source Serif 4', Georgia, serif; }
 .ceremony {
-  background: radial-gradient(ellipse at 85% 72%, #eef6ee 0%, transparent 36%),
-              radial-gradient(ellipse at 4% 8%, #fffaf0 0%, transparent 39%),
-              linear-gradient(105deg, #fff 0%, #fff 68%, #fbfdfb 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f6f9f9 46%, #eaf1f2 78%, #e2edf0 100%);
   color: var(--ministry-ink);
 }
 .ceremony::before {
@@ -27,30 +25,32 @@ body { background: #fff; color: var(--ministry-ink); font-family: Georgia, 'Time
   height: 5px; width: 100%;
   background: linear-gradient(90deg, var(--ministry-red) 0 20%, var(--ministry-gold) 20% 28%, var(--ministry-green) 28% 100%);
 }
-.ambient::before { border-color: #2a84501c; box-shadow: 0 0 0 9vw #4b9b5b06, 0 0 0 19vw #a2c6ab04; }
-.ambient::after { opacity: .2; background-image: linear-gradient(#2b7a4b0b 1px, transparent 1px), linear-gradient(90deg, #2b7a4b0b 1px, transparent 1px); }
-.ambient-glow--one { background: #b0d9ba; opacity: .18; }
-.ambient-glow--two { background: #e9d5b8; opacity: .12; }
-.wave-lines { stroke: #247747; opacity: .18; }
+.ambient::before { display: none; }
+.ambient::after { display: none; }
+.ambient-glow--one { background: #c3ddc9; opacity: .08; }
+.ambient-glow--two { background: #ecdcc3; opacity: .05; }
+.wave-lines .wave-1 { fill: #1a6ea0; opacity: .17; }
+.wave-lines .wave-2 { fill: #1c7548; opacity: .13; }
+.wave-lines .wave-3 { fill: #131c73; opacity: .07; }
 
 /* Use the original, unaltered Ministry logo. The surrounding white margin is cropped by CSS only. */
 .masthead {
-  min-height: 172px; padding: 10px clamp(28px, 5.2vw, 95px);
-  align-items: center; border-bottom: 1px solid #e2e9e0;
-  background: linear-gradient(90deg, #fffffffb, #fffffff1);
+  min-height: 168px; padding: 14px clamp(28px, 5.2vw, 95px);
+  align-items: center; border-bottom: none;
+  background: transparent;
 }
 .brand--ministry { display: block; }
-.ministry-logo-window { width: min(34vw, 420px); aspect-ratio: 410 / 140; position: relative; overflow: hidden; background: #fff; }
+.ministry-logo-window { width: min(31vw, 390px); aspect-ratio: 410 / 140; position: relative; overflow: hidden; background: transparent; }
 .ministry-logo-window img { position: absolute; display: block; width: 122%; max-width: none; height: auto; left: -11.2%; top: -114.3%; }
-.masthead-right { color: #4f5870; font-family: Arial, Helvetica, sans-serif; font-size: 11px; letter-spacing: .17em; }
+.masthead-right { color: #4f5870; font-family: 'Public Sans', Arial, sans-serif; font-size: 11px; letter-spacing: .17em; }
 .masthead-right .small-line { background: var(--ministry-red); }
 .masthead-right .year { color: var(--dws-blue); }
 
-.scene { top: clamp(175px, 19vh, 210px); bottom: clamp(76px, 9vh, 100px); }
-.eyebrow { color: var(--ministry-red); font-family: Arial, Helvetica, sans-serif; font-size: clamp(12px, .9vw, 15px); letter-spacing: .23em; }
+.scene { top: clamp(170px, 19vh, 205px); bottom: clamp(76px, 9vh, 100px); }
+.eyebrow { color: var(--ministry-red); font-family: 'Public Sans', Arial, sans-serif; font-size: clamp(12px, .9vw, 15px); letter-spacing: .23em; }
 .eyebrow-line { background: var(--ministry-red); }
 .ready-copy h1 {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: clamp(36px, 3.93vw, 70px); font-weight: 600;
   line-height: 1.03; letter-spacing: -.043em;
   color: #1f2737; margin: clamp(12px, 1.6vh, 20px) 0 18px;
@@ -62,32 +62,49 @@ body { background: #fff; color: var(--ministry-ink); font-family: Georgia, 'Time
 .date-dash { color: var(--ministry-gold); }
 .ready-intro { color: #4d5a70; margin: 19px 0 clamp(22px, 3.4vh, 37px); font-size: clamp(16px, 1.1vw, 19px); }
 .minister-intro { border-left: 3px solid var(--ministry-red); }
-.minister-tag { color: var(--dws-blue); font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.minister-tag { color: var(--dws-blue); font-family: 'Public Sans', Arial, sans-serif; font-size: 12px; }
 .minister-intro strong { color: #39475b; font-size: clamp(15px, 1vw, 17px); }
 .minister-name { color: #20283b; font-weight: 600; }
 
-.launch-halo { background: radial-gradient(circle, #5198d30d 0%, #8dc2e537 35%, transparent 70%); }
-.orbit { border-color: #26754959; }
-.orbit-two { border-color: #a88e394d; }
+.launch-halo { display: none; }
 .launch-button {
-  border-color: #fff9f0;
-  background: radial-gradient(circle at 30% 21%, #6ac4f1, #237ecb 44%, #1252a7 73%, #0b2174 100%);
-  box-shadow: 0 0 0 2px #246dbc, 0 0 0 17px #2a84bd1a, inset 0 0 40px #ffffff1e, 0 23px 50px #26395b36;
+  border: none;
+  background: radial-gradient(135% 135% at 50% 16%, #2c3ca6 0%, #182283 46%, #0e1458 100%);
+  box-shadow: inset 0 1px 1px #ffffff33, inset 0 -10px 24px -8px #05082e, 0 22px 48px -18px #0d1356e6;
   color: #fff;
+  transition: transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s ease;
 }
-.launch-button:hover { box-shadow: 0 0 0 3px #174f9f, 0 0 0 22px #3389ce28, inset 0 0 42px #ffffff22, 0 27px 55px #26395b4a; }
-.launch-icon { stroke: #fffaef; }
-.launch-button-main, .launch-button-sub { font-family: Arial, Helvetica, sans-serif; }
+/* Resting: one quiet ring. Hover/focus: two rings ripple out from the edge in turn, like still water. */
+.launch-button::before,
+.launch-button::after {
+  content: ''; position: absolute; inset: -20px; border-radius: 50%; pointer-events: none;
+}
+.launch-button::after { border: 1px solid #1c2a8a2b; transition: border-color .4s ease; }
+.launch-button::before { border: 1px solid transparent; opacity: 0; }
+.launch-button:hover::before, .launch-button:hover::after,
+.launch-button:focus-visible::before, .launch-button:focus-visible::after {
+  border-color: #1c2a8a4d;
+  box-shadow: inset 0 0 0 4px #1c2a8a0d;
+  animation: launch-ripple 3s cubic-bezier(.22, .61, .36, 1) infinite;
+}
+.launch-button:hover::before,
+.launch-button:focus-visible::before { animation-delay: 1.5s; }
+@keyframes launch-ripple {
+  0%   { transform: scale(.88); opacity: 0; }
+  14%  { opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.launch-button:hover { transform: translateY(-3px); box-shadow: inset 0 1px 1px #ffffff40, inset 0 -10px 24px -8px #05082e, 0 30px 60px -18px #0d1356; }
+.launch-button:active { transform: translateY(-1px) scale(.992); }
+.launch-icon { stroke: #e9ecff; }
+.launch-button-main, .launch-button-sub { font-family: 'Public Sans', Arial, sans-serif; }
 .launch-button-sub { color: #fff0e2; }
-.button-caption { color: #365a42; font-family: Arial, Helvetica, sans-serif; }
+.button-caption { color: #365a42; font-family: 'Public Sans', Arial, sans-serif; }
 .caption-dot { background: #218e53; box-shadow: 0 0 9px #218e5344; }
-.countdown-caption { color: #6c776e; font-family: Arial, Helvetica, sans-serif; }
+.countdown-caption { color: #6c776e; font-family: 'Public Sans', Arial, sans-serif; }
 .caption-rule { background: #b89f69; }
 
-.scene--countdown h2 { color: #495474; font-family: Arial, Helvetica, sans-serif; }
-.number-orbit span { border-color: #2b875144; }
-.number-orbit span:nth-child(2) { border-color: #a5872c38; }
-.number-orbit span:nth-child(3) { border-color: #a32c3b4e; }
+.scene--countdown h2 { color: #495474; font-family: 'Public Sans', Arial, sans-serif; }
 .countdown-number { color: var(--dws-blue); text-shadow: 0 0 38px #8bb3ed55, 0 0 100px #8bb3ed29; }
 .progress-pips span { background: #bed4c0; }
 .progress-pips span.is-lit { background: var(--ministry-red); box-shadow: 0 0 12px #a52d3b40; }
@@ -97,15 +114,15 @@ body { background: #fff; color: var(--ministry-ink); font-family: Georgia, 'Time
 .reveal-message h2 { color: var(--ministry-ink); }
 .reveal-message h2 span { color: var(--dws-blue); }
 .reveal-rule { background: var(--ministry-red); }
-.reveal-message h3 { color: #202a3e; font-family: Georgia, 'Times New Roman', serif; font-weight: 600; }
+.reveal-message h3 { color: #202a3e; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; }
 .reveal-period { color: var(--ministry-red); }
 .reveal-message p { color: #526078; font-size: clamp(16px, 1.1vw, 18px); }
 .launched-by { border-left-color: var(--ministry-red); color: var(--dws-blue); }
 .launched-by strong { color: #20283d; }
 .launched-by span { color: #4b5971; font-size: 15px; }
-.document-link { background: var(--ministry-green); color: #fff; font-family: Arial, Helvetica, sans-serif; }
+.document-link { background: var(--ministry-green); color: #fff; font-family: 'Public Sans', Arial, sans-serif; }
 .document-link:hover { background: #0e5733; }
-.download-link { color: var(--ministry-red); border-color: #c38f94; font-family: Arial, Helvetica, sans-serif; }
+.download-link { color: var(--ministry-red); border-color: #c38f94; font-family: 'Public Sans', Arial, sans-serif; }
 .download-link:hover { background: #fff2f2; }
 .cover-glow { background: #8acba144; }
 .cover-shadow { border-color: #d7dfd8; box-shadow: 0 29px 70px #253f2b35, 0 0 0 12px #a9bfa71f; }
@@ -116,10 +133,10 @@ body { background: #fff; color: var(--ministry-ink); font-family: Georgia, 'Time
 .particles i:nth-child(3n + 1) { background: #1c8654; }
 .particles i:nth-child(3n + 2) { background: #bda35a; }
 
-.ceremony-footer { border-top: 1px solid #e4eae3; background: #fffdfce8; padding-top: 14px; padding-bottom: 14px; }
-.footer-signature { color: #62708a; font-family: Arial, Helvetica, sans-serif; }
+.ceremony-footer { border-top: none; background: transparent; padding-top: 14px; padding-bottom: 14px; }
+.footer-signature { color: #62708a; font-family: 'Public Sans', Arial, sans-serif; }
 .footer-divider { color: var(--dws-blue); }
-.utility-button { color: #4e5c72; font-family: Arial, Helvetica, sans-serif; }
+.utility-button { color: #4e5c72; font-family: 'Public Sans', Arial, sans-serif; }
 .utility-button:hover { color: var(--ministry-red); }
 .settings-panel { border-color: #d4dce9; background: #fff; color: #23375c; }
 .settings-header button { color: #293e69; }
@@ -129,7 +146,7 @@ body { background: #fff; color: var(--ministry-ink); font-family: Georgia, 'Time
 .settings-panel label { color: #273d65; }
 .settings-panel input { accent-color: var(--ministry-green); }
 .settings-panel .sound-level-label { display: flex; align-items: center; justify-content: space-between; margin: 15px 0 6px; }
-.sound-level-label output { color: #13569c; font-family: Arial, Helvetica, sans-serif; font-weight: 700; }
+.sound-level-label output { color: #13569c; font-family: 'Public Sans', Arial, sans-serif; font-weight: 700; }
 .settings-panel input[type="range"] { display: block; width: 100%; margin: 6px 0 13px; accent-color: #1766b8; }
 .settings-panel .sound-preview { width: 100%; border: 1px solid #2b73b2; color: #155696; background: #eef6fd; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 700; margin-top: 8px; }
 .settings-panel .sound-preview:hover { background: #e0f0fe; }

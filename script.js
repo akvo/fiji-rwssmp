@@ -355,7 +355,7 @@
   fullscreenButton.addEventListener('click', fullscreen);
   document.getElementById('settings-fullscreen').addEventListener('click', fullscreen);
   document.addEventListener('fullscreenchange', () => {
-    fullscreenButton.textContent = document.fullscreenElement ? 'EXIT FULL SCREEN' : 'FULL SCREEN';
+    fullscreenButton.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !settingsPanel.hidden) setSettings(false);

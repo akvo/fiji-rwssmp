@@ -14,7 +14,7 @@
 }
 .dws-logo {
   display: block;
-  width: clamp(185px, 21vw, 275px);
+  width: clamp(165px, 18vw, 245px);
   height: auto;
   object-fit: contain;
 }
@@ -36,18 +36,6 @@
   text-align: center;
   overflow: hidden;
 }
-.backdrop-watermark {
-  position: absolute;
-  right: -7%;
-  top: 2%;
-  width: min(38vw, 500px);
-  opacity: .075;
-  transform: rotate(9deg);
-  pointer-events: none;
-}
-.backdrop-watermark svg { width: 100%; height: auto; overflow: visible; }
-.backdrop-watermark svg path:first-child { fill: #1560ac; }
-.backdrop-watermark svg path:last-child { fill: none; stroke: #ffffff; stroke-width: 12; stroke-linecap: round; }
 .backdrop-content {
   position: relative;
   z-index: 1;
@@ -62,13 +50,13 @@
   align-items: center;
   gap: 20px;
   color: #a12c40;
-  font: 700 clamp(13px, 1.1vw, 17px)/1.4 Arial, Helvetica, sans-serif;
+  font: 700 clamp(13px, 1.1vw, 17px)/1.4 'Public Sans', Arial, sans-serif;
   letter-spacing: .26em;
 }
 .backdrop-kicker span { width: clamp(36px, 5vw, 70px); height: 1px; background: #a12c40; }
 .backdrop-content h1 {
   color: #20283b;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: clamp(45px, 5.3vw, 82px);
   font-weight: 600;
   line-height: 1.055;
@@ -84,7 +72,7 @@
   justify-content: center;
   gap: clamp(16px, 2.2vw, 30px);
   color: var(--dws-blue);
-  font: 400 clamp(23px, 2vw, 30px)/1.2 Georgia, 'Times New Roman', serif;
+  font: 400 clamp(23px, 2vw, 30px)/1.2 'Source Serif 4', Georgia, serif;
   letter-spacing: .16em;
 }
 .backdrop-period span { width: clamp(36px, 5vw, 75px); height: 2px; background: var(--ministry-gold); }
@@ -92,7 +80,7 @@
 .backdrop-content p {
   color: #4c5870;
   max-width: 760px;
-  font: 400 clamp(16px, 1.25vw, 20px)/1.5 Georgia, 'Times New Roman', serif;
+  font: 400 clamp(16px, 1.25vw, 20px)/1.5 'Source Serif 4', Georgia, serif;
   margin: clamp(24px, 3.8vh, 48px) 0 0;
   text-wrap: balance;
 }
@@ -120,7 +108,6 @@
   .backdrop-period { font-size: 20px; gap: 11px; }
   .backdrop-period span { width: 29px; }
   .backdrop-content p { font-size: 15px; margin-top: 27px; }
-  .backdrop-watermark { width: 76vw; top: 6%; right: -23%; }
   .footer-actions { gap: 8px; flex-wrap: wrap; justify-content: center; }
   .utility-button--stage { font-size: 9px; padding: 9px 8px; }
 }
@@ -179,12 +166,12 @@
 }
 .reveal-kicker {
   color: var(--ministry-red);
-  font: 700 clamp(12px, .95vw, 15px)/1.4 Arial, Helvetica, sans-serif;
+  font: 700 clamp(12px, .95vw, 15px)/1.4 'Public Sans', Arial, sans-serif;
   letter-spacing: .2em;
 }
 .reveal-panel h2 {
   color: #20283b;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: clamp(39px, 4.2vw, 64px);
   font-weight: 500;
   line-height: 1.08;
@@ -194,7 +181,7 @@
 .reveal-panel h2 span { color: var(--dws-blue); }
 .reveal-document-title {
   color: #39465e;
-  font: 600 clamp(14px, 1.08vw, 17px)/1.45 Georgia, 'Times New Roman', serif;
+  font: 600 clamp(14px, 1.08vw, 17px)/1.45 'Source Serif 4', Georgia, serif;
   letter-spacing: .02em;
   margin: 0 0 clamp(16px, 2.3vh, 28px);
 }
@@ -220,13 +207,13 @@
 .qr-download:hover { transform: translateY(-3px); box-shadow: 0 18px 40px #14235c22; }
 .qr-download img { display: block; width: clamp(185px, 20vw, 260px); height: auto; aspect-ratio: 1; }
 .qr-download strong {
-  font: 700 clamp(12px, 1vw, 15px)/1.45 Arial, Helvetica, sans-serif;
+  font: 700 clamp(12px, 1vw, 15px)/1.45 'Public Sans', Arial, sans-serif;
   letter-spacing: .09em;
   text-align: center;
 }
 .reveal-open-pdf {
   color: #1758a4;
-  font: 600 14px/1.5 Arial, Helvetica, sans-serif;
+  font: 600 14px/1.5 'Public Sans', Arial, sans-serif;
   text-underline-offset: 4px;
   margin-top: 15px;
 }

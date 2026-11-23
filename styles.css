@@ -11,7 +11,7 @@
 
 * { box-sizing: border-box; }
 html { height: 100%; }
-body { margin: 0; min-height: 100%; background: var(--deepest); color: var(--paper); font-family: Arial, Helvetica, sans-serif; }
+body { margin: 0; min-height: 100%; background: var(--deepest); color: var(--paper); font-family: 'Public Sans', Arial, sans-serif; }
 button, select { font: inherit; }
 button { cursor: pointer; }
 button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #fff1aa; outline-offset: 4px; }
@@ -24,7 +24,20 @@ button:disabled { cursor: not-allowed; }
 .ambient-glow { position: absolute; width: 65vw; aspect-ratio: 1; filter: blur(80px); border-radius: 50%; opacity: .2; }
 .ambient-glow--one { background: #13b1ad; top: 50%; right: -26%; }
 .ambient-glow--two { background: #04677b; left: -40%; top: -20%; }
-.wave-lines { position: absolute; bottom: -15%; left: -8%; width: 120%; height: 88%; opacity: .25; fill: none; stroke: #7abcc7; stroke-width: 1; }
+
+.ceremony { --sea-h: clamp(190px, 33vh, 360px); }
+
+.sea { position: absolute; inset: 0; }
+
+/* Travelling swell: each band is a repeating wave drawn two screens wide (2880 units)
+   and scrolled left by exactly one screen (1440 units), so the loop is seamless.
+   Different wavelengths, speeds and one reversed band give crossing, living crests. */
+.wave-lines { position: absolute; left: 0; bottom: 0; width: 100%; height: calc(var(--sea-h) * 1.5); overflow: hidden; }
+.wave-lines .wave { stroke: none; will-change: transform; animation: wave-travel linear infinite; }
+.wave-lines .wave-1 { animation-duration: 16s; }
+.wave-lines .wave-2 { animation-duration: 24s; animation-direction: reverse; }
+.wave-lines .wave-3 { animation-duration: 34s; }
+@keyframes wave-travel { from { transform: translateX(0); } to { transform: translateX(-1440px); } }
 
 .masthead { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 7; padding: clamp(20px, 3vw, 38px) clamp(28px, 4.2vw, 76px); gap: 22px; }
 .brand { display: flex; gap: 15px; align-items: center; }
@@ -48,25 +61,22 @@ button:disabled { cursor: not-allowed; }
 .ready-copy h1 { font-size: clamp(37px, 4.15vw, 79px); line-height: 1.04; margin: clamp(16px, 2vh, 30px) 0 22px; letter-spacing: -.049em; font-weight: 800; text-wrap: balance; }
 .ready-copy h1 em { font-style: normal; color: var(--mint); }
 .ready-copy h1 span { color: var(--mint); display: block; }
-.date-pill { display: flex; align-items: center; gap: 15px; font-size: 22px; letter-spacing: .19em; color: var(--gold); font-family: Georgia, 'Times New Roman', serif; }
+.date-pill { display: flex; align-items: center; gap: 15px; font-size: 22px; letter-spacing: .19em; color: var(--gold); font-family: 'Source Serif 4', Georgia, serif; }
 .date-line { width: 60px; height: 2px; background: var(--gold); }
 .date-dash { color: #a5d7d5; }
 .ready-intro { font-size: clamp(15px, 1.16vw, 19px); line-height: 1.6; max-width: 630px; color: #c6dfe0; margin: 23px 0 clamp(28px, 4vh, 47px); }
 .minister-intro { border-left: 2px solid var(--gold); padding-left: 25px; }
 .minister-tag { display: block; color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .17em; margin-bottom: 10px; }
 .minister-intro strong { font-size: clamp(14px, .98vw, 17px); font-weight: 500; line-height: 1.5; color: #f1f4f1; }
-.minister-name { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(21px, 1.65vw, 31px); line-height: 1.25; margin-top: 7px; color: #fff; }
+.minister-name { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(21px, 1.65vw, 31px); line-height: 1.25; margin-top: 7px; color: #fff; }
 
 .launch-area { position: relative; min-height: 430px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .launch-halo { position: absolute; width: clamp(310px, 31vw, 535px); height: clamp(310px, 31vw, 535px); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -55%); background: radial-gradient(circle, #2fd8c41b 5%, #30e8c512 32%, transparent 65%); }
-.orbit { position: absolute; border: 1px solid #88cfc850; inset: 4%; border-radius: 50%; }
-.orbit-one { animation: breathe 5s ease-in-out infinite; }
-.orbit-two { inset: 14%; border-style: dashed; border-color: #c1dcc733; animation: gentle-rotate 34s linear infinite; }
-.launch-button { position: relative; z-index: 2; border: 9px solid #ffffff1f; background: radial-gradient(circle at 31% 22%, #44d6c9, #0e9798 44%, #0b596b 85%); width: clamp(260px, 23vw, 370px); aspect-ratio: 1; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 0 0 2px #b1f7df6b, 0 0 0 18px #6ae7d20d, inset 0 0 45px #ffffff17, 0 25px 64px #001a29a8; transition: transform .2s ease, box-shadow .2s ease; }
-.launch-button:hover { transform: scale(1.035); box-shadow: 0 0 0 3px #c5ffe9, 0 0 0 23px #6ae7d216, inset 0 0 45px #ffffff17, 0 30px 68px #001a29c0; }
-.launch-button:active { transform: scale(.98); }
-.launch-icon { width: 48px; height: 48px; margin-bottom: 18px; fill: none; stroke: #e4fcf6; stroke-width: 2.7px; stroke-linecap: round; }
-.launch-button-main { font-size: clamp(24px, 2vw, 33px); line-height: 1.08; letter-spacing: .07em; font-weight: 800; }
+.orbit { position: absolute; border: 1px solid #1c2a8a1f; inset: 1%; border-radius: 50%; }
+.orbit-two { inset: 9%; border-color: #1c2a8a14; }
+.launch-button { position: relative; z-index: 2; border: 0; width: clamp(220px, 19vw, 300px); aspect-ratio: 1; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
+.launch-icon { width: 38px; height: 38px; margin-bottom: 16px; fill: none; stroke: #e9ecff; stroke-width: 2.2px; stroke-linecap: round; }
+.launch-button-main { font-size: clamp(18px, 1.5vw, 24px); line-height: 1.18; letter-spacing: .16em; font-weight: 600; }
 .launch-button-sub { color: #c7fbef; font-size: clamp(10px, .69vw, 12px); letter-spacing: .14em; margin-top: 21px; font-weight: 700; }
 .button-caption { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .14em; color: #bde5dc; font-size: clamp(10px, .7vw, 13px); margin-top: 40px; }
 .caption-dot { height: 7px; width: 7px; background: #91e5b6; border-radius: 50%; box-shadow: 0 0 18px #91e5b6; }
@@ -78,10 +88,21 @@ button:disabled { cursor: not-allowed; }
 .eyebrow--center { justify-content: center; }
 .scene--countdown h2 { color: #d6e9e6; letter-spacing: .25em; font-size: clamp(16px, 1.2vw, 23px); font-weight: 500; margin: clamp(18px, 3.5vh, 32px) 0 0; }
 .number-orbit { position: absolute; width: min(38vw, 510px); aspect-ratio: 1; border-radius: 50%; top: 47%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
-.number-orbit span { position: absolute; inset: 0; border: 1px solid #75e0d44b; border-radius: 50%; animation: breathe 5.3s ease-in-out infinite; }
-.number-orbit span:nth-child(2) { inset: 9%; border-color: #e5cf942d; animation-delay: .8s; }
-.number-orbit span:nth-child(3) { inset: 20%; border-style: dashed; border-color: #9ce8da47; animation-delay: 1.5s; }
-.countdown-number { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: clamp(180px, 24vw, 380px); letter-spacing: -.07em; min-height: clamp(240px, 31vw, 470px); line-height: 1.1; display: flex; align-items: center; justify-content: center; z-index: 1; font-variant-numeric: lining-nums tabular-nums; color: #fff; text-shadow: 0 0 36px #69d7c65c, 0 0 100px #2cc1b02f; }
+/* Same water ripple as the launch button: rings spread from behind the number, one after another. */
+.number-orbit span {
+  position: absolute; inset: 0; border-radius: 50%; opacity: 0;
+  border: 1px solid #1c2a8a4d;
+  box-shadow: inset 0 0 0 4px #1c2a8a0d;
+  animation: dial-ripple 3.6s cubic-bezier(.22, .61, .36, 1) infinite;
+}
+.number-orbit span:nth-child(2) { animation-delay: 1.2s; }
+.number-orbit span:nth-child(3) { animation-delay: 2.4s; }
+@keyframes dial-ripple {
+  0%   { transform: scale(.45); opacity: 0; }
+  14%  { opacity: 1; }
+  100% { transform: scale(1.05); opacity: 0; }
+}
+.countdown-number { font-family: 'Source Serif 4', Georgia, serif; font-weight: 400; font-size: clamp(180px, 24vw, 380px); letter-spacing: -.07em; min-height: clamp(240px, 31vw, 470px); line-height: 1.1; display: flex; align-items: center; justify-content: center; z-index: 1; font-variant-numeric: lining-nums tabular-nums; color: #fff; text-shadow: 0 0 36px #69d7c65c, 0 0 100px #2cc1b02f; }
 .number-enter { animation: number-pulse 1.5s cubic-bezier(.18,.8,.4,1) both; }
 .progress-pips { display: flex; align-items: center; gap: 13px; position: relative; z-index: 2; }
 .progress-pips span { display: block; width: clamp(20px, 2.8vw, 41px); height: 4px; border-radius: 3px; background: #d1e4dd42; transition: background .25s ease, box-shadow .25s ease; }
@@ -92,14 +113,14 @@ button:disabled { cursor: not-allowed; }
 .reveal-aura { position: absolute; z-index: 0; inset: -20%; opacity: .6; background: radial-gradient(circle at 71% 50%, #3eaeae67, transparent 42%), radial-gradient(circle at 38% 90%, #e3c47c25, transparent 42%); animation: reveal-light 2.8s ease-out both; pointer-events: none; }
 .reveal-content { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); align-items: center; gap: clamp(30px, 6vw, 110px); position: relative; width: 100%; z-index: 2; }
 .reveal-message { animation: message-arrive 1.3s .7s backwards ease-out; }
-.reveal-message h2 { margin: clamp(14px, 2.8vh, 24px) 0 8px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(48px, 5.9vw, 99px); letter-spacing: -.04em; line-height: .97; font-weight: 500; }
+.reveal-message h2 { margin: clamp(14px, 2.8vh, 24px) 0 8px; font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(48px, 5.9vw, 99px); letter-spacing: -.04em; line-height: .97; font-weight: 500; }
 .reveal-message h2 span { color: var(--gold); }
 .reveal-rule { width: 78px; height: 3px; background: var(--gold); margin: 20px 0; }
 .reveal-message h3 { font-size: clamp(19px, 1.8vw, 28px); line-height: 1.3; letter-spacing: .055em; max-width: 780px; margin: 0; }
-.reveal-period { font-size: 22px; font-family: Georgia, 'Times New Roman', serif; color: var(--gold); margin-top: 10px; letter-spacing: .15em; }
+.reveal-period { font-size: 22px; font-family: 'Source Serif 4', Georgia, serif; color: var(--gold); margin-top: 10px; letter-spacing: .15em; }
 .reveal-message p { font-size: clamp(14px, .95vw, 17px); line-height: 1.5; max-width: 580px; color: #c6dddd; margin: 18px 0 24px; }
 .launched-by { border-left: 2px solid var(--gold); padding-left: 18px; color: var(--gold); letter-spacing: .12em; font-size: 11px; font-weight: 700; line-height: 1.7; }
-.launched-by strong { display: block; color: #fff; font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0; font-size: clamp(18px, 1.4vw, 24px); margin-top: 3px; font-weight: 500; }
+.launched-by strong { display: block; color: #fff; font-family: 'Source Serif 4', Georgia, serif; letter-spacing: 0; font-size: clamp(18px, 1.4vw, 24px); margin-top: 3px; font-weight: 500; }
 .launched-by span { display: block; color: #d0e3e3; letter-spacing: 0; font-size: 13px; font-weight: 400; }
 .document-links { display: flex; gap: 13px; margin-top: 28px; align-items: center; flex-wrap: wrap; }
 .document-link, .download-link { display: inline-flex; text-decoration: none; min-height: 45px; align-items: center; justify-content: center; padding: 13px 21px; font-size: 12px; font-weight: 700; letter-spacing: .09em; transition: transform .2s, background .2s; }
@@ -144,7 +165,7 @@ button:disabled { cursor: not-allowed; }
 
 @keyframes breathe { 0%, 100% { transform: scale(1); opacity: .5; } 50% { transform: scale(1.035); opacity: .95; } }
 @keyframes gentle-rotate { to { transform: rotate(360deg); } }
-@keyframes number-pulse { 0% { opacity: .15; transform: scale(.82); filter: blur(18px); } 22% { opacity: 1; transform: scale(1.09); filter: blur(0); } 65% { transform: scale(1); } 100% { opacity: 1; transform: scale(1); filter: blur(0); } }
+@keyframes number-pulse { 0% { opacity: 0; transform: scale(.86); } 22% { opacity: 1; transform: scale(1.05); } 65% { transform: scale(1); } 100% { opacity: 1; transform: scale(1); } }
 @keyframes ribbon-left { 0% { transform: translateX(0); } 22% { transform: translateX(-1vw); } 100% { transform: translateX(-110%); opacity: 0; } }
 @keyframes ribbon-right { 0% { transform: translateX(0); } 22% { transform: translateX(1vw); } 100% { transform: translateX(110%); opacity: 0; } }
 @keyframes seal-away { 0% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.8) rotate(45deg); } }
